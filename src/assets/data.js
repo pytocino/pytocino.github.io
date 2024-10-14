@@ -20,6 +20,10 @@ import figmaPNG from "../assets/figma.png";
 import gimpPNG from "../assets/gimp.png";
 import inkscapePNG from "../assets/inkscape.png";
 import photoshopPNG from "../assets/photoshop.png";
+import mplogoPNG from "../assets/mplogo.png";
+import bflogo from "../assets/perfil.png";
+import logoCole from "../assets/logosoloblanco.png";
+import logoUPCT from "../assets/upct.png";
 
 export const sectionsData = [
   {
@@ -157,6 +161,7 @@ export const sectionsData = [
     experiences: [
       {
         title: "Desarrollador FullStack (Becario)",
+        image: logoUPCT,
         subtitle: "Universidad Politécnica de Cartagena",
         description:
           "Desarrollo FullStack con experiencia en backend (PHP, Laravel) y frontend (JavaScript, React), aplicando trabajo colaborativo mediante metodologías ágiles y control de versiones con Git y GitHub. He gestionado y optimizado el rendimiento de servidores, actualizando versiones del sistema operativo, PHP y WordPress. Además, he implementado sistemas de autenticación segura en aplicaciones web, diseñado páginas web utilizando herramientas como Figma o GIMP, producido plugins personalizados según necesidades, y creado páginas principalmente con el constructor visual Elementor.",
@@ -175,6 +180,7 @@ export const sectionsData = [
     projects: [
       {
         title: "BEERFINDER",
+        image: bflogo,
         subtitle: "Aplicación web para localizar cervezas en tu ciudad",
         description:
           "BEERFINDER es una aplicación web desarrollada con Laravel y React, con un sistema de autenticación y una API completamente funcional. La integración de React permite a los usuarios disfrutar de una experiencia interactiva y dinámica. El proyecto está versionado con Git para un control eficiente.",
@@ -193,6 +199,7 @@ export const sectionsData = [
       },
       {
         title: "Marca Personal FP",
+        image: mplogoPNG,
         subtitle: "Desarrollo backend para la página web marcapersonalFP.es",
         description:
           "Proyecto colaborativo desarrollado con otros estudiantes de 2DAW. Con dos repositorios: uno para el recurso educativo abierto (REA) y otro para el código fuente. Participé en el desarrollo backend usando PHP y Laravel.",
@@ -209,6 +216,7 @@ export const sectionsData = [
     education: [
       {
         title: "Máster en Inteligencia Artificial y Big Data",
+        image: logoCole,
         venue: "CIFP Carlos III, Cartagena",
         description:
           "Programar y aplicar sistemas inteligentes que optimizan la gestión de la información y la explotación de datos masivos, garantizando el acceso a los datos de forma segura y cumpliendo los criterios de accesibilidad, usabilidad y calidad exigidas en los estándares establecidos, así como los principios éticos y legales.",
@@ -216,6 +224,7 @@ export const sectionsData = [
       },
       {
         title: "Técnico Superior en Desarrollo de Aplicaciones Web",
+        image: logoCole,
         venue: "CIFP Carlos III, Cartagena",
         description:
           "Desarrollar, implantar, y mantener aplicaciones web, con independencia del modelo empleado y utilizando tecnologías específicas, garantizando el acceso a los datos de forma segura y cumpliendo los criterios de accesibilidad, usabilidad y calidad exigidas en los estándares establecidos.",

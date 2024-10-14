@@ -7,7 +7,7 @@ const About = ({ additionalInfo }) => {
     <div className="container text-light py-5">
       <div className="row align-items-center">
         {/* Imagen de perfil */}
-        <div className="col-md-2 text-center">
+        <div className="col-4 col-md-2 text-center">
           <img
             src={fotoPerfil}
             alt="Profile"
@@ -17,7 +17,7 @@ const About = ({ additionalInfo }) => {
         </div>
 
         {/* Información Personal */}
-        <div className="col-md-6">
+        <div className="col-8 col-md-6">
           <h2 className="h3">{additionalInfo.name}</h2>
           <p className="lead mb-1">
             {additionalInfo.mainSkill} | pedrodavidg88@gmail.com
