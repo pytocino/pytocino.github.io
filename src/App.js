@@ -1,15 +1,12 @@
-import logo from "./logo.svg";
-import "./App.css";
+import React from "react";
+import Portfolio from "./components/Portfolio";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>ME CAGO EN MI CARA, O NO?</p>
-      </header>
+    <div>
+      <Portfolio />
     </div>
   );
-}
+};
 
 export default App;
