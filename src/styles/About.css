@@ -1,0 +1,30 @@
+.custom-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #b7c5a2; /* Color inicial del botón, más oscuro que el fondo */
+  border: 2px solid transparent;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.custom-btn i {
+  margin-right: 8px;
+}
+
+.custom-btn:hover {
+  background-color: #a7b38f; /* Color de fondo más oscuro para hover */
+  border-color: #8a9070; /* Borde más oscuro en hover */
+}
+
+.custom-btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(196, 214, 176, 0.5); /* Sombra al hacer foco */
+}
+
+a {
+  text-decoration: none !important;
+  color: white !important;
+}

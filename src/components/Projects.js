@@ -8,7 +8,7 @@ const Projects = ({ projects }) => {
       {projects.map((project, index) => (
         <div key={index} className="mb-4">
           <h3 className="h5">{project.title}</h3>
-          <h4 className="h6 text-muted">{project.subtitle}</h4>
+          <h4 className="h6 text-white">{project.subtitle}</h4>
           <p>{project.description}</p>
           <h5 className="mt-3">Tecnologías usadas:</h5>
           <ul className="list-inline">

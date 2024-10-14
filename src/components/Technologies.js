@@ -2,19 +2,35 @@
 import React from "react";
 
 const Technologies = ({ technologies }) => {
+  const renderCategory = (category, title) => (
+    <div className="col-12 col-md-6 mb-4">
+      <h3 className="mb-3">{title}</h3>
+      <div className="d-flex flex-wrap justify-content-center">
+        {category.map((tech, index) => (
+          <div key={index} className="m-2 text-center">
+            <img
+              src={`/path/to/icons/${tech.image}`}
+              alt={tech.title}
+              className="tech-icon img-fluid"
+              style={{ width: "50px", height: "50px" }}
+            />
+            <p className="mt-2">{tech.title}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <div className="container text-center py-5">
-      <h2 className="display-4">Tecnologías que manejo</h2>
-      <ul className="list-inline">
-        {technologies.map((tech, index) => (
-          <li
-            key={index}
-            className="list-inline-item badge badge-pill badge-primary p-2 m-2"
-          >
-            {tech}
-          </li>
-        ))}
-      </ul>
+      <h2 className="display-4 mb-5">Tecnologías que manejo</h2>
+      <div className="row">
+        {renderCategory(technologies.backend, "Backend")}
+        {renderCategory(technologies.databases, "Bases de Datos")}
+        {renderCategory(technologies.frontend, "Frontend")}
+        {renderCategory(technologies.frameworks, "Frameworks")}
+        {renderCategory(technologies.tools, "Herramientas")}
+      </div>
     </div>
   );
 };

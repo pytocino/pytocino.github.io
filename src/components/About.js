@@ -1,53 +1,57 @@
 // src/components/About.js
 import React from "react";
-import fotoPerfil from "../assets/FotoPerfil.jpg";
-
+import "../styles/About.css"; // Asegúrate de crear este archivo para los estilos personalizados
+import fotoPerfil from "../assets/FotoPerfil.jpg"; // Asegúrate de tener una imagen de perfil en la carpeta assets
 const About = ({ additionalInfo }) => {
   return (
-    <div className="container text-light">
+    <div className="container text-light py-5">
       <div className="row align-items-center">
         {/* Imagen de perfil */}
         <div className="col-md-2 text-center">
           <img
             src={fotoPerfil}
             alt="Profile"
-            className="rounded-circle"
-            style={{ width: "100px", height: "auto" }}
+            className="rounded-circle img-fluid"
+            style={{ width: "auto", height: "auto" }}
           />
         </div>
 
         {/* Información Personal */}
         <div className="col-md-6">
           <h2 className="h3">{additionalInfo.name}</h2>
-          <p className="lead mb-1">{additionalInfo.mainSkill}</p>
+          <p className="lead mb-1">
+            {additionalInfo.mainSkill} | pedrodavidg88@gmail.com
+          </p>
           <p className="text-muted">
             <i className="bi bi-geo-alt-fill"></i> {additionalInfo.location}
           </p>
         </div>
 
-        {/* Iconos de contacto */}
+        {/* Botones personalizados de contacto */}
         <div className="col-md-4 text-center">
           <a
             href={`mailto:${additionalInfo.email}`}
-            className="btn btn-outline-primary mx-2"
+            className="custom-btn m-2"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <i className="bi bi-envelope"></i>
+            <i className="bi bi-envelope"></i> Correo
           </a>
           <a
             href={additionalInfo.github}
-            className="btn btn-outline-primary mx-2"
+            className="custom-btn m-2"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="bi bi-github"></i>
+            <i className="bi bi-github"></i> GitHub
           </a>
           <a
-            href={additionalInfo.linkedin}
-            className="btn btn-outline-primary mx-2"
+            href={additionalInfo.linkedIn}
+            className="custom-btn m-2"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i className="bi bi-linkedin"></i>
+            <i className="bi bi-linkedin"></i> LinkedIn
           </a>
         </div>
       </div>
