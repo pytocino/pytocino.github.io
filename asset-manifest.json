@@ -1,8 +1,9 @@
 {
   "files": {
     "main.css": "/static/css/main.6567dd6e.css",
-    "main.js": "/static/js/main.7fbd6680.js",
+    "main.js": "/static/js/main.3d451d0b.js",
     "static/js/453.0630e2a9.chunk.js": "/static/js/453.0630e2a9.chunk.js",
+    "static/media/upct.png": "/static/media/upct.629e6ba4fb97c706c07d.png",
     "static/media/php.png": "/static/media/php.48707d46dc79703cc547.png",
     "static/media/wordpress.png": "/static/media/wordpress.b26f023ce5eb600d341d.png",
     "static/media/csharp.png": "/static/media/csharp.1b104160abeeb18a99d7.png",
@@ -17,15 +18,16 @@
     "static/media/bash.png": "/static/media/bash.c8322fac9c7836c2dfdf.png",
     "static/media/FotoPerfil.jpg": "/static/media/FotoPerfil.627ac8a6fab7cc7b671f.jpg",
     "static/media/vscode.png": "/static/media/vscode.15306385f74129c981d9.png",
+    "static/media/logosoloblanco.png": "/static/media/logosoloblanco.35c96b0111bdf05effc9.png",
     "static/media/visualstudio.png": "/static/media/visualstudio.335de45c1a8d3434b43c.png",
     "static/media/css.png": "/static/media/css.8ea5cd819edce0c60a94.png",
     "index.html": "/index.html",
     "main.6567dd6e.css.map": "/static/css/main.6567dd6e.css.map",
-    "main.7fbd6680.js.map": "/static/js/main.7fbd6680.js.map",
+    "main.3d451d0b.js.map": "/static/js/main.3d451d0b.js.map",
     "453.0630e2a9.chunk.js.map": "/static/js/453.0630e2a9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6567dd6e.css",
-    "static/js/main.7fbd6680.js"
+    "static/js/main.3d451d0b.js"
   ]
 }
