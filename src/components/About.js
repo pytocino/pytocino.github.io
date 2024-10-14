@@ -11,7 +11,7 @@ const About = ({ additionalInfo }) => {
           <img
             src={fotoPerfil}
             alt="Profile"
-            className="rounded-circle img-fluid"
+            className="img-fluid"
             style={{ width: "auto", height: "auto" }}
           />
         </div>
@@ -31,7 +31,7 @@ const About = ({ additionalInfo }) => {
         <div className="col-md-4 text-center">
           <a
             href={`mailto:${additionalInfo.email}`}
-            className="custom-btn m-2"
+            className="custom-btn m-2 h4"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -39,7 +39,7 @@ const About = ({ additionalInfo }) => {
           </a>
           <a
             href={additionalInfo.github}
-            className="custom-btn m-2"
+            className="custom-btn m-2 h4"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -47,7 +47,7 @@ const About = ({ additionalInfo }) => {
           </a>
           <a
             href={additionalInfo.linkedIn}
-            className="custom-btn m-2"
+            className="custom-btn m-2 h4"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -59,7 +59,9 @@ const About = ({ additionalInfo }) => {
       {/* Descripción adicional */}
       <div className="mt-5">
         <h3 className="h5">Sobre mí</h3>
-        <p>{additionalInfo.aMe}</p>
+        <p className="h3" style={{ textAlign: "justify" }}>
+          {additionalInfo.aMe}
+        </p>
       </div>
     </div>
   );

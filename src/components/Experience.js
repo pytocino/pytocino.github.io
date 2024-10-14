@@ -9,7 +9,7 @@ const Experience = ({ experiences }) => {
         <div key={index} className="mb-4">
           <h3 className="h5">{exp.title}</h3>
           <h4 className="h6 text-muted">{exp.subtitle}</h4>
-          <p>{exp.description}</p>
+          <p style={{ textAlign: "justify" }}>{exp.description}</p>
           <span className="text-muted">{exp.years}</span>
         </div>
       ))}

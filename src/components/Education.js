@@ -11,7 +11,7 @@ const Education = ({ education }) => {
           <h4 className="h6" style={{ color: "black" }}>
             {edu.venue} | {edu.years}
           </h4>
-          <p>{edu.description}</p>
+          <p style={{ textAlign: "justify" }}>{edu.description}</p>
         </div>
       ))}
     </div>

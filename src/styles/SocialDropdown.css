@@ -1,0 +1,12 @@
+.social-dropdown .dropdown-content {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.social-dropdown .dropdown-content a {
+  width: 150px;
+  text-align: center;
+  color: black !important;
+}

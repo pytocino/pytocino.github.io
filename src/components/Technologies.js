@@ -9,10 +9,10 @@ const Technologies = ({ technologies }) => {
         {category.map((tech, index) => (
           <div key={index} className="m-2 text-center">
             <img
-              src={`/path/to/icons/${tech.image}`}
+              src={tech.image}
               alt={tech.title}
               className="tech-icon img-fluid"
-              style={{ width: "50px", height: "50px" }}
+              style={{ width: "75px", height: "75px" }}
             />
             <p className="mt-2">{tech.title}</p>
           </div>
@@ -23,13 +23,14 @@ const Technologies = ({ technologies }) => {
 
   return (
     <div className="container text-center py-5">
-      <h2 className="display-4 mb-5">Tecnologías que manejo</h2>
+      <h2 className="display-4 mb-5">Stack Tecnológico</h2>
       <div className="row">
         {renderCategory(technologies.backend, "Backend")}
         {renderCategory(technologies.databases, "Bases de Datos")}
         {renderCategory(technologies.frontend, "Frontend")}
         {renderCategory(technologies.frameworks, "Frameworks")}
         {renderCategory(technologies.tools, "Herramientas")}
+        {renderCategory(technologies.graphicTools, "Diseño Gráfico")}
       </div>
     </div>
   );

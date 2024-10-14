@@ -1,4 +1,26 @@
 // src/mocks/sectionsData.js
+import javaPNG from "../assets/java.png";
+import phpPNG from "../assets/php.png";
+import pythonPNG from "../assets/python.png";
+import csharpPNG from "../assets/csharp.png";
+import mysqlPNG from "../assets/mysql.png";
+import jsPNG from "../assets/js.png";
+import htmlPNG from "../assets/html.png";
+import cssPNG from "../assets/css.png";
+import reactPNG from "../assets/react.png";
+import laravelPNG from "../assets/laravel.png";
+import bootstrapPNG from "../assets/bootstrap.png";
+import wordpressPNG from "../assets/wordpress.png";
+import gitPNG from "../assets/git.png";
+import dockerPNG from "../assets/docker.png";
+import vscodePNG from "../assets/vscode.png";
+import visualstudioPNG from "../assets/visualstudio.png";
+import bashPNG from "../assets/bash.png";
+import figmaPNG from "../assets/figma.png";
+import gimpPNG from "../assets/gimp.png";
+import inkscapePNG from "../assets/inkscape.png";
+import photoshopPNG from "../assets/photoshop.png";
+
 export const sectionsData = [
   {
     id: "about",
@@ -17,7 +39,7 @@ export const sectionsData = [
       driverLicense: "Carnet de conducir y vehículo propio",
       linkedIn: "https://www.linkedin.com/in/pytocino/",
       github: "https://www.github.com/pytocino",
-      aMe: "Desarrollador apasionado con experiencia en tecnologías tanto de frontend como de backend, especializado en la creación de soluciones eficientes. Busco unirme a un equipo dinámico donde pueda continuar creciendo profesionalmente, aportando mis habilidades de desarrollo de software. Me considero una persona proactiva, con capacidad de trabajo en equipo y resolución de problemas.",
+      aMe: "Desarrollador con experiencia en tecnologías tanto de frontend como de backend. Busco unirme a un equipo dinámico donde pueda continuar creciendo profesionalmente, aportando mis habilidades de desarrollo de software. Me considero una persona proactiva, con capacidad de trabajo en equipo y resolución de problemas.",
     },
   },
   {
@@ -30,79 +52,98 @@ export const sectionsData = [
       backend: [
         {
           title: "Java",
-          image: "java.png",
+          image: javaPNG,
         },
         {
           title: "PHP",
-          image: "php.png",
+          image: phpPNG,
         },
         {
           title: "Python",
-          image: "python.png",
+          image: pythonPNG,
         },
         {
           title: "C#",
-          image: "csharp.png",
+          image: csharpPNG,
         },
       ],
       databases: [
         {
           title: "SQL (MySQL)",
-          image: "mysql.png",
+          image: mysqlPNG,
         },
       ],
       frontend: [
         {
           title: "JavaScript",
-          image: "javascript.png",
+          image: jsPNG,
         },
         {
           title: "HTML",
-          image: "html.png",
+          image: htmlPNG,
         },
         {
           title: "CSS",
-          image: "css.png",
+          image: cssPNG,
         },
       ],
       frameworks: [
         {
           title: "React",
-          image: "react.png",
+          image: reactPNG,
         },
         {
           title: "Laravel",
-          image: "laravel.png",
+          image: laravelPNG,
+        },
+
+        {
+          title: "Bootstrap",
+          image: bootstrapPNG,
         },
         {
-          title: "Flask",
-          image: "flask.png",
-        },
-        {
-          title: ".NET",
-          image: "dotnet.png",
+          title: "WordPress",
+          image: wordpressPNG,
         },
       ],
       tools: [
         {
           title: "Git",
-          image: "git.png",
+          image: gitPNG,
         },
         {
           title: "Docker",
-          image: "docker.png",
+          image: dockerPNG,
         },
         {
           title: "VS Code",
-          image: "vscode.png",
+          image: vscodePNG,
         },
         {
           title: "Visual Studio",
-          image: "visualstudio.png",
+          image: visualstudioPNG,
         },
         {
           title: "Bash",
-          image: "bash.png",
+          image: bashPNG,
+        },
+      ],
+      graphicTools: [
+        {
+          title: "Figma",
+          image: figmaPNG,
+        },
+        {
+          title: "GIMP",
+          image: gimpPNG,
+        },
+        {
+          title: "Inkscape",
+          image: inkscapePNG,
+        },
+        {
+          title: "Photoshop",
+          image: photoshopPNG,
         },
       ],
     },
@@ -134,7 +175,7 @@ export const sectionsData = [
     projects: [
       {
         title: "BEERFINDER",
-        subtitle: "Aplicación web para localizar cervezas artesanales",
+        subtitle: "Aplicación web para localizar cervezas en tu ciudad",
         description:
           "BEERFINDER es una aplicación web desarrollada con Laravel y React, con un sistema de autenticación y una API completamente funcional. La integración de React permite a los usuarios disfrutar de una experiencia interactiva y dinámica. El proyecto está versionado con Git para un control eficiente.",
         technologies: [
@@ -170,14 +211,14 @@ export const sectionsData = [
         title: "Máster en Inteligencia Artificial y Big Data",
         venue: "CIFP Carlos III, Cartagena",
         description:
-          "Actualmente cursando un máster de formación profesional en Inteligencia Artificial y Big Data.",
+          "Programar y aplicar sistemas inteligentes que optimizan la gestión de la información y la explotación de datos masivos, garantizando el acceso a los datos de forma segura y cumpliendo los criterios de accesibilidad, usabilidad y calidad exigidas en los estándares establecidos, así como los principios éticos y legales.",
         years: "Sep 2024 - Presente",
       },
       {
         title: "Técnico Superior en Desarrollo de Aplicaciones Web",
         venue: "CIFP Carlos III, Cartagena",
         description:
-          "Formación técnica enfocada en el desarrollo de aplicaciones web utilizando tecnologías modernas de frontend y backend.",
+          "Desarrollar, implantar, y mantener aplicaciones web, con independencia del modelo empleado y utilizando tecnologías específicas, garantizando el acceso a los datos de forma segura y cumpliendo los criterios de accesibilidad, usabilidad y calidad exigidas en los estándares establecidos.",
         years: "Sep 2022 - Jun 2024",
       },
     ],

@@ -14,7 +14,7 @@ const Section = ({ id, title, description, bgColor, textColor, data }) => {
       style={{
         backgroundColor: bgColor,
         color: textColor,
-        minHeight: "100vh",
+        minHeight: "50vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
