@@ -1,8 +1,10 @@
 {
   "files": {
     "main.css": "/static/css/main.6567dd6e.css",
-    "main.js": "/static/js/main.4b11ff61.js",
+    "main.js": "/static/js/main.1a294ced.js",
     "static/js/453.9a1b4ee2.chunk.js": "/static/js/453.9a1b4ee2.chunk.js",
+    "static/media/portfolio.png": "/static/media/portfolio.749024d0ae91be082fc2.png",
+    "static/media/beerfinder2.gif": "/static/media/beerfinder2.72bb636d9454173bedd7.gif",
     "static/media/wordpress.png": "/static/media/wordpress.8be7749da6c714d49c9d.png",
     "static/media/inkscape.png": "/static/media/inkscape.c8f80eade127820ba5d2.png",
     "static/media/gimp.png": "/static/media/gimp.454ac26f240dfc07970d.png",
@@ -10,6 +12,7 @@
     "static/media/react.png": "/static/media/react.51e07f4ad2e91e3d69e9.png",
     "static/media/vscode.png": "/static/media/vscode.ef127fb6c5865cc2dc22.png",
     "static/media/python.png": "/static/media/python.057b882530e5b1bc0b83.png",
+    "static/media/CV.pdf": "/static/media/CV.cbcdd48a39c01408ba00.pdf",
     "static/media/visualstudio.png": "/static/media/visualstudio.4fd64ee384c94be91ba5.png",
     "static/media/upct.png": "/static/media/upct.629e6ba4fb97c706c07d.png",
     "static/media/php.png": "/static/media/php.48707d46dc79703cc547.png",
@@ -25,11 +28,11 @@
     "static/media/css.png": "/static/media/css.8ea5cd819edce0c60a94.png",
     "index.html": "/index.html",
     "main.6567dd6e.css.map": "/static/css/main.6567dd6e.css.map",
-    "main.4b11ff61.js.map": "/static/js/main.4b11ff61.js.map",
+    "main.1a294ced.js.map": "/static/js/main.1a294ced.js.map",
     "453.9a1b4ee2.chunk.js.map": "/static/js/453.9a1b4ee2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6567dd6e.css",
-    "static/js/main.4b11ff61.js"
+    "static/js/main.1a294ced.js"
   ]
 }
