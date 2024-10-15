@@ -24,6 +24,9 @@ import mplogoPNG from "../assets/mplogo.png";
 import bflogo from "../assets/perfil.png";
 import logoCole from "../assets/logosoloblanco.png";
 import logoUPCT from "../assets/upct.png";
+import portfolioPNG from "../assets/portfolio.png";
+import cvPDF from "../assets/CV.pdf";
+import beerfinderGIF from "../assets/beerfinder2.gif";
 
 export const sectionsData = [
   {
@@ -35,6 +38,7 @@ export const sectionsData = [
     textColor: "#291f1e",
     additionalInfo: {
       name: "Pedro David García López",
+      cv: cvPDF,
       mainSkill: "FullStack Developer",
       location: "Cartagena, España",
       email: "pedrodavidg88@gmail.com",
@@ -196,6 +200,7 @@ export const sectionsData = [
           "Bash",
           "Apache",
         ],
+        gif: beerfinderGIF,
       },
       {
         title: "Marca Personal FP",
@@ -204,6 +209,13 @@ export const sectionsData = [
         description:
           "Proyecto colaborativo desarrollado con otros estudiantes de 2DAW. Con dos repositorios: uno para el recurso educativo abierto (REA) y otro para el código fuente. Participé en el desarrollo backend usando PHP y Laravel.",
         technologies: ["PHP", "Laravel", "Git", "MySQL"],
+      },
+      {
+        title: "Portafolio Personal",
+        subtitle: "Portafolio interactivo y responsivo",
+        image: portfolioPNG,
+        description: `Desarrollé este portafolio personal utilizando React, Bootstrap y CSS. El proyecto incluye navegación entre secciones, es completamente responsivo, e incorpora enlaces a mis redes sociales. Desplegado en GitHub Pages.`,
+        technologies: ["React", "Bootstrap", "CSS", "GitHub Pages"],
       },
     ],
   },

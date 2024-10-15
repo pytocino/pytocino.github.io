@@ -53,6 +53,13 @@ const About = ({ additionalInfo }) => {
           >
             <i className="bi bi-linkedin"></i> LinkedIn
           </a>
+          <a
+            href={additionalInfo.cv}
+            className="custom-btn m-2 h4"
+            download="CV.pdf"
+          >
+            <i className="bi bi-download"></i> Descargar CV
+          </a>
         </div>
       </div>
 

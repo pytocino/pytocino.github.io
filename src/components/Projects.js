@@ -42,6 +42,17 @@ const Projects = ({ projects }) => {
                 </li>
               ))}
             </ul>
+            {project.gif ? (
+              <img
+                src={project.gif}
+                alt={project.title}
+                className="img-fluid d-flex mx-auto"
+                style={{
+                  borderRadius: "15px",
+                  boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
+                }}
+              />
+            ) : null}
           </div>
         ))}
       </div>
