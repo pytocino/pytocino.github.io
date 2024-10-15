@@ -1,33 +1,35 @@
 {
   "files": {
     "main.css": "/static/css/main.6567dd6e.css",
-    "main.js": "/static/js/main.b870c2e4.js",
-    "static/js/453.0630e2a9.chunk.js": "/static/js/453.0630e2a9.chunk.js",
+    "main.js": "/static/js/main.4b11ff61.js",
+    "static/js/453.9a1b4ee2.chunk.js": "/static/js/453.9a1b4ee2.chunk.js",
+    "static/media/wordpress.png": "/static/media/wordpress.8be7749da6c714d49c9d.png",
+    "static/media/inkscape.png": "/static/media/inkscape.c8f80eade127820ba5d2.png",
+    "static/media/gimp.png": "/static/media/gimp.454ac26f240dfc07970d.png",
+    "static/media/bootstrap.png": "/static/media/bootstrap.276cd50fec9f42b0900f.png",
+    "static/media/react.png": "/static/media/react.51e07f4ad2e91e3d69e9.png",
+    "static/media/vscode.png": "/static/media/vscode.ef127fb6c5865cc2dc22.png",
+    "static/media/python.png": "/static/media/python.057b882530e5b1bc0b83.png",
+    "static/media/visualstudio.png": "/static/media/visualstudio.4fd64ee384c94be91ba5.png",
     "static/media/upct.png": "/static/media/upct.629e6ba4fb97c706c07d.png",
     "static/media/php.png": "/static/media/php.48707d46dc79703cc547.png",
-    "static/media/wordpress.png": "/static/media/wordpress.b26f023ce5eb600d341d.png",
     "static/media/csharp.png": "/static/media/csharp.1b104160abeeb18a99d7.png",
     "static/media/laravel.png": "/static/media/laravel.9401993709fb4212ad63.png",
     "static/media/java.png": "/static/media/java.2aa478303855375c57d0.png",
-    "static/media/react.png": "/static/media/react.43a9fa229cd7433e9ada.png",
+    "static/media/mysql.png": "/static/media/mysql.4787988529380140c625.png",
     "static/media/docker.png": "/static/media/docker.4ce3a987e1060f0ed0ab.png",
-    "static/media/mysql.png": "/static/media/mysql.cade829ad755de0a8729.png",
-    "static/media/gimp.png": "/static/media/gimp.97c8ca6729d002c38240.png",
-    "static/media/inkscape.png": "/static/media/inkscape.c525a5cecb791bd137e6.png",
+    "static/media/bash.png": "/static/media/bash.b06cd98f90f4ca518a19.png",
     "static/media/js.png": "/static/media/js.40a6fa6e448bd6ff6fb6.png",
-    "static/media/bash.png": "/static/media/bash.c8322fac9c7836c2dfdf.png",
     "static/media/FotoPerfil.jpg": "/static/media/FotoPerfil.627ac8a6fab7cc7b671f.jpg",
-    "static/media/vscode.png": "/static/media/vscode.15306385f74129c981d9.png",
     "static/media/logosoloblanco.png": "/static/media/logosoloblanco.35c96b0111bdf05effc9.png",
-    "static/media/visualstudio.png": "/static/media/visualstudio.335de45c1a8d3434b43c.png",
     "static/media/css.png": "/static/media/css.8ea5cd819edce0c60a94.png",
     "index.html": "/index.html",
     "main.6567dd6e.css.map": "/static/css/main.6567dd6e.css.map",
-    "main.b870c2e4.js.map": "/static/js/main.b870c2e4.js.map",
-    "453.0630e2a9.chunk.js.map": "/static/js/453.0630e2a9.chunk.js.map"
+    "main.4b11ff61.js.map": "/static/js/main.4b11ff61.js.map",
+    "453.9a1b4ee2.chunk.js.map": "/static/js/453.9a1b4ee2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6567dd6e.css",
-    "static/js/main.b870c2e4.js"
+    "static/js/main.4b11ff61.js"
   ]
 }
