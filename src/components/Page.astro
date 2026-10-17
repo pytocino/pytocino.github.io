@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import { getContent, type Locale } from "../content/index.ts";
 import Nav from "./Nav.astro";
 import Hero from "./Hero.astro";
+import Experience from "./Experience.astro";
 
 interface Props {
   locale: Locale;
@@ -16,5 +17,6 @@ const { meta } = getContent(locale);
   <Nav locale={locale} />
   <main>
     <Hero locale={locale} />
+    <Experience locale={locale} />
   </main>
 </Base>
