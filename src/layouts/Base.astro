@@ -7,13 +7,36 @@ import "@fontsource/instrument-serif/400-italic.css";
 import "@fontsource/jetbrains-mono/400.css";
 import "../styles/global.css";
 
+import { links } from "../content/index.ts";
+
 interface Props {
   lang: "es" | "en";
   title: string;
   description: string;
+  /** Página indexable con alternativas de idioma; las páginas auxiliares (print) no la llevan. */
+  seo?: boolean;
 }
 
-const { lang, title, description } = Astro.props;
+const { lang, title, description, seo = true } = Astro.props;
+const site = Astro.site!;
+const canonical = new URL(Astro.url.pathname, site).href;
+const alternates = [
+  { hreflang: "es", href: new URL("/", site).href },
+  { hreflang: "en", href: new URL("/en/", site).href },
+  { hreflang: "x-default", href: new URL("/", site).href },
+];
+const ogImage = new URL(`/og/og-${lang}.png`, site).href;
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Pedro David García López",
+  jobTitle: lang === "es" ? "Técnico de infraestructura y desarrollador" : "Infrastructure engineer and developer",
+  url: canonical,
+  email: "mailto:pedrodavidg88@gmail.com",
+  address: { "@type": "PostalAddress", addressLocality: "Cartagena", addressRegion: "Región de Murcia", addressCountry: "ES" },
+  worksFor: { "@type": "Organization", name: "SAES" },
+  sameAs: [links.linkedin, links.github],
+};
 ---
 
 <!doctype html>
@@ -25,6 +48,26 @@ const { lang, title, description } = Astro.props;
     <meta name="description" content={description} />
     <meta name="theme-color" content="#f5f3ee" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {
+      seo ? (
+        <>
+          <link rel="canonical" href={canonical} />
+          {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
+          <meta property="og:type" content="profile" />
+          <meta property="og:title" content={title} />
+          <meta property="og:description" content={description} />
+          <meta property="og:url" content={canonical} />
+          <meta property="og:image" content={ogImage} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:locale" content={lang === "es" ? "es_ES" : "en_US"} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <script type="application/ld+json" set:html={JSON.stringify(person)} />
+        </>
+      ) : (
+        <meta name="robots" content="noindex" />
+      )
+    }
     <slot name="head" />
   </head>
   <body>

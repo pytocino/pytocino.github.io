@@ -150,4 +150,28 @@ export const en: SiteContent = {
     location: "Cartagena, Región de Murcia, Spain",
     terminalNote: "this site builds, audits and deploys itself with GitHub Actions",
   },
+  cv: {
+    role: "Infrastructure Engineer · DevOps & Developer",
+    headings: {
+      profile: "Professional profile",
+      skills: "Technical skills",
+      experience: "Professional experience",
+      education: "Education",
+      projects: "Personal projects",
+    },
+    profile:
+      "Infrastructure engineer focused on DevOps and container platforms. I deploy and run in production a Docker Swarm platform with around 60 containers, manage self-hosted GitLab CE, maintain CI/CD pipelines with near-daily deployments and rolled out monitoring with Prometheus and Grafana. Solid background in Linux, networking, PKI/TLS and identity (LDAP, OIDC, Entra ID) in regulated defence-sector environments (ENS, ISO 27001), plus hands-on experience as a developer (Laravel, React, .NET, Python).",
+    skills: [
+      { label: "Containers", items: "Docker, Docker Compose, Docker Swarm, Portainer; Kubernetes cluster design (kubeadm)" },
+      { label: "Observability", items: "Prometheus, Grafana, alerting" },
+      { label: "CI/CD", items: "GitLab CI/CD, GitLab Runner, GitLab CE administration" },
+      { label: "Systems", items: "Linux (Ubuntu), Windows Server, Active Directory, Microsoft Entra ID" },
+      { label: "Networking & security", items: "Nginx (reverse proxy), TLS/PKI, DNS, LDAP, OIDC/SSO" },
+      { label: "Databases", items: "PostgreSQL, MySQL, SQL Server" },
+      { label: "Languages", items: "Python, PowerShell, PHP/Laravel, React/TypeScript, C#/.NET" },
+      { label: "Spoken languages", items: "Spanish (native), English (advanced, Cambridge B2)" },
+    ],
+    projectLine: "iOS and Android app (React Native) live on the App Store and Google Play",
+    portfolioLabel: "Portfolio",
+  },
 };

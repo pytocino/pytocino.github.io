@@ -1,0 +1,44 @@
+---
+// Imagen para compartir (1200×630). tools/make-assets.mjs la captura a public/og/.
+import Base from "../../../layouts/Base.astro";
+import { getContent, type Locale } from "../../../content/index.ts";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+
+const locale = Astro.params.lang as Locale;
+const { hero, meta } = getContent(locale);
+---
+
+<Base lang={locale} title={meta.title} description={meta.description} seo={false}>
+  <div class="og">
+    <div class="og__top">
+      <span class="kicker">{hero.kicker}</span>
+      <span class="mono">pytocino.github.io</span>
+    </div>
+    <h1>{hero.titleBefore}<em>{hero.titleEmphasis}</em>{hero.titleAfter}</h1>
+    <div class="og__bottom">
+      <p>Pedro David García<span>.</span></p>
+      <ul>
+        {hero.stats.slice(0, 3).map((s) => <li><strong>{s.value}</strong>{s.label}</li>)}
+      </ul>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .og { width: 1200px; height: 630px; padding: 64px 72px; display: flex; flex-direction: column; justify-content: space-between; background: var(--bg); }
+  .og__top { display: flex; justify-content: space-between; font-size: 18px; color: var(--muted); }
+  .og__top .kicker { font-size: 18px; margin: 0; }
+  h1 { font-size: 92px; line-height: 0.98; letter-spacing: -0.025em; max-width: 15ch; }
+  h1 em { color: var(--accent); }
+  .og__bottom { display: flex; justify-content: space-between; align-items: end; }
+  .og__bottom p { font-size: 26px; font-weight: 600; }
+  .og__bottom p span { color: var(--accent); }
+  ul { list-style: none; display: flex; gap: 12px; }
+  li { width: 170px; padding: 14px 16px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); font-size: 14px; color: var(--ink-soft); display: grid; gap: 6px; }
+  li:first-child { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  li:first-child strong { color: var(--accent); }
+  strong { font-family: var(--font-serif); font-weight: 400; font-size: 36px; line-height: 1; color: var(--ink); }
+</style>

@@ -150,4 +150,28 @@ export const es: SiteContent = {
     location: "Cartagena, Región de Murcia",
     terminalNote: "esta web se compila, se audita y se despliega sola con GitHub Actions",
   },
+  cv: {
+    role: "Técnico de infraestructura · DevOps & Developer",
+    headings: {
+      profile: "Perfil profesional",
+      skills: "Competencias técnicas",
+      experience: "Experiencia profesional",
+      education: "Formación",
+      projects: "Proyectos personales",
+    },
+    profile:
+      "Técnico de infraestructura orientado a DevOps y plataformas de contenedores. Despliego y administro en producción una plataforma Docker Swarm con unos 60 contenedores, gestiono GitLab CE autoalojado, mantengo pipelines CI/CD con despliegues prácticamente diarios y he implantado la monitorización con Prometheus y Grafana. Base sólida en Linux, redes, PKI/TLS e identidad (LDAP, OIDC, Entra ID), en entornos regulados (ENS, ISO 27001) del sector defensa, y experiencia como desarrollador (Laravel, React, .NET, Python).",
+    skills: [
+      { label: "Contenedores", items: "Docker, Docker Compose, Docker Swarm, Portainer; diseño de clúster Kubernetes (kubeadm)" },
+      { label: "Observabilidad", items: "Prometheus, Grafana, alertas" },
+      { label: "CI/CD", items: "GitLab CI/CD, GitLab Runner, administración de GitLab CE" },
+      { label: "Sistemas", items: "Linux (Ubuntu), Windows Server, Active Directory, Microsoft Entra ID" },
+      { label: "Redes y seguridad", items: "Nginx (reverse proxy), TLS/PKI, DNS, LDAP, OIDC/SSO" },
+      { label: "Bases de datos", items: "PostgreSQL, MySQL, SQL Server" },
+      { label: "Lenguajes", items: "Python, PowerShell, PHP/Laravel, React/TypeScript, C#/.NET" },
+      { label: "Idiomas", items: "Español nativo, inglés avanzado (Cambridge B2)" },
+    ],
+    projectLine: "App iOS y Android (React Native) publicada en App Store y Google Play",
+    portfolioLabel: "Portfolio",
+  },
 };

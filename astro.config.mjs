@@ -10,5 +10,5 @@ export default defineConfig({
     locales: ["es", "en"],
     routing: { prefixDefaultLocale: false },
   },
-  integrations: [sitemap({ filter: (page) => !page.includes("/og/") })],
+  integrations: [sitemap({ filter: (page) => !page.includes("/print/") })],
 });

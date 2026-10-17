@@ -1,0 +1,102 @@
+---
+// Versión imprimible del CV. tools/make-assets.mjs la exporta a PDF en public/cv/.
+import Base from "../../../layouts/Base.astro";
+import { email, getContent, links, type Locale } from "../../../content/index.ts";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+
+const locale = Astro.params.lang as Locale;
+const c = getContent(locale);
+const host = (url: string) => url.replace(/^https?:\/\/(www\.)?/, "");
+---
+
+<Base lang={locale} title={`CV — Pedro David García López`} description={c.cv.profile} seo={false}>
+  <main class="cv">
+    <header>
+      <h1>Pedro David García López</h1>
+      <p class="role">{c.cv.role}</p>
+      <p class="contact mono">
+        {c.contact.location} · <a href={`mailto:${email}`}>{email}</a> ·
+        <a href={links.linkedin}>{host(links.linkedin)}</a> ·
+        <a href="https://pytocino.github.io">pytocino.github.io</a>
+      </p>
+    </header>
+
+    <section>
+      <h2>{c.cv.headings.profile}</h2>
+      <p>{c.cv.profile}</p>
+    </section>
+
+    <section>
+      <h2>{c.cv.headings.skills}</h2>
+      <ul class="skills">
+        {c.cv.skills.map((s) => <li><b>{s.label}:</b> {s.items}</li>)}
+      </ul>
+    </section>
+
+    <section>
+      <h2>{c.cv.headings.experience}</h2>
+      {
+        c.experience.jobs.map((job) => (
+          <article class="job">
+            <div class="job__head">
+              <p><b>{job.company}</b> · {job.place}</p>
+              <p class="mono">{job.period}</p>
+            </div>
+            <p class="job__role">{job.role}</p>
+            {job.groups.length > 0 ? (
+              job.groups.map((g) => (
+                <>
+                  <p class="job__group">{g.title}</p>
+                  <ul>{g.bullets.map((b) => <li>{b}</li>)}</ul>
+                </>
+              ))
+            ) : (
+              <ul><li>{job.summary}</li></ul>
+            )}
+          </article>
+        ))
+      }
+    </section>
+
+    <section>
+      <h2>{c.cv.headings.education}</h2>
+      <ul class="plain">
+        {c.education.items.filter((i) => !i.detail.includes("B2")).map((i) => <li><b>{i.title}</b> · {i.detail}</li>)}
+      </ul>
+    </section>
+
+    <section>
+      <h2>{c.cv.headings.projects}</h2>
+      <p><b>BeerFinder</b> · {c.cv.projectLine} · <a href={links.beerfinderWeb}>beerfinder.es</a></p>
+    </section>
+  </main>
+</Base>
+
+<style>
+  @page { size: A4; margin: 10mm 14mm; }
+  :global(body) { background: #fff; }
+  .cv { max-width: 178mm; margin: 0 auto; font-size: 9.1pt; line-height: 1.36; color: var(--ink); }
+  header { border-bottom: 2px solid var(--ink); padding-bottom: 10px; margin-bottom: 4px; }
+  h1 { font-size: 27pt; letter-spacing: -0.02em; }
+  .role { color: var(--accent); font-weight: 500; margin-top: 2px; }
+  .contact { font-size: 7.6pt; color: var(--muted); margin-top: 6px; }
+  .contact a { text-decoration: none; }
+  section { margin-top: 9px; break-inside: avoid-page; }
+  h2 {
+    font-family: var(--font-mono); font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--accent); border-bottom: 1px solid var(--line); padding-bottom: 3px; margin-bottom: 6px;
+  }
+  h2::before { content: "// "; }
+  ul { padding-left: 14px; display: grid; gap: 2px; }
+  li::marker { color: var(--accent); }
+  .skills, .plain { list-style: none; padding-left: 0; }
+  .job { margin-top: 8px; break-inside: avoid; }
+  .job__head { display: flex; justify-content: space-between; gap: 12px; }
+  .job__head .mono { font-size: 8pt; white-space: nowrap; }
+  .job__role { color: var(--accent); margin-bottom: 2px; }
+  .job__group { font-weight: 600; margin-top: 5px; }
+  a { color: inherit; }
+</style>

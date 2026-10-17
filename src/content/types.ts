@@ -50,4 +50,12 @@ export interface SiteContent {
   stack: { kicker: string; title: string; groups: { label: string; items: string[] }[] };
   education: { kicker: string; title: string; items: { title: string; detail: string }[] };
   contact: { kicker: string; title: string; text: string; location: string; terminalNote: string };
+  cv: {
+    role: string;
+    headings: { profile: string; skills: string; experience: string; education: string; projects: string };
+    profile: string;
+    skills: { label: string; items: string }[];
+    projectLine: string;
+    portfolioLabel: string;
+  };
 }
