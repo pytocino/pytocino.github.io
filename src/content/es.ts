@@ -40,7 +40,7 @@ export const es: SiteContent = {
     stats: [
       { value: "~60", label: "contenedores en producción" },
       { value: "Diario", label: "despliegues con GitLab CI/CD" },
-      { value: "140", label: "usuarios en apps que he desarrollado" },
+      { value: "140", label: "usuarios en apps internas que he desarrollado" },
       { value: "iOS + Android", label: "BeerFinder publicada en las tiendas" },
     ],
   },

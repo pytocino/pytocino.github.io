@@ -29,8 +29,8 @@ export const en: SiteContent = {
   cvHref: "/cv/CV-PedroDavidGarcia-EN.pdf",
   hero: {
     kicker: "hello",
-    titleBefore: "DevOps & developer who ",
-    titleEmphasis: "ships",
+    titleBefore: "DevOps & developer. I ",
+    titleEmphasis: "ship",
     titleAfter: " what I build.",
     subtitle:
       "Infrastructure engineer at SAES. I run container platforms, CI/CD pipelines and monitoring, and I write the applications that run on top of them.",
@@ -40,7 +40,7 @@ export const en: SiteContent = {
     stats: [
       { value: "~60", label: "containers in production" },
       { value: "Daily", label: "deployments with GitLab CI/CD" },
-      { value: "140", label: "users on apps I've built" },
+      { value: "140", label: "users on internal apps I've built" },
       { value: "iOS + Android", label: "BeerFinder live on the stores" },
     ],
   },
@@ -59,7 +59,7 @@ export const en: SiteContent = {
           {
             title: "Container platform & CI/CD",
             bullets: [
-              "Deployed and run in production a single-node Docker Swarm platform managed with Portainer: around 60 active containers, stacks, overlay networks and an Nginx Proxy Manager reverse proxy with TLS termination using the corporate CA.",
+              "Deployed a single-node Docker Swarm platform managed with Portainer and run it in production: around 60 active containers, stacks, overlay networks and an Nginx Proxy Manager reverse proxy with TLS termination using the corporate CA.",
               "Containerised and shipped in-house services to production: an ASP.NET Core API with PostgreSQL, a Python microservice and a Laravel + React web platform.",
               "GitLab CI/CD pipelines for testing, building and automatically deploying containers, with deployments to production almost every day.",
               "Administration of self-hosted GitLab CE: migration to HTTPS, SSO with Entra ID (OIDC), major upgrades and maintenance.",
@@ -160,7 +160,7 @@ export const en: SiteContent = {
       projects: "Personal projects",
     },
     profile:
-      "Infrastructure engineer focused on DevOps and container platforms. I deploy and run in production a Docker Swarm platform with around 60 containers, manage self-hosted GitLab CE, maintain CI/CD pipelines with near-daily deployments and rolled out monitoring with Prometheus and Grafana. Solid background in Linux, networking, PKI/TLS and identity (LDAP, OIDC, Entra ID) in regulated defence-sector environments (ENS, ISO 27001), plus hands-on experience as a developer (Laravel, React, .NET, Python).",
+      "Infrastructure engineer focused on DevOps and container platforms. I deploy and run a Docker Swarm platform with around 60 containers in production, manage self-hosted GitLab CE, maintain CI/CD pipelines with near-daily deployments and rolled out monitoring with Prometheus and Grafana. Solid background in Linux, networking, PKI/TLS and identity (LDAP, OIDC, Entra ID) in regulated defence-sector environments (ENS, ISO 27001), plus hands-on experience as a developer (Laravel, React, .NET, Python).",
     skills: [
       { label: "Containers", items: "Docker, Docker Compose, Docker Swarm, Portainer; Kubernetes cluster design (kubeadm)" },
       { label: "Observability", items: "Prometheus, Grafana, alerting" },

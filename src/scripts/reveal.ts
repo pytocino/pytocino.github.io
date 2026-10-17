@@ -1,6 +1,6 @@
 // Aparición suave de las secciones. El HTML no oculta nada: la clase `js-reveal`
 // (que activa el CSS que oculta) solo se añade si este script se ejecuta.
-const sections = document.querySelectorAll<HTMLElement>("main section");
+const sections = document.querySelectorAll<HTMLElement>("main section:not(.hero)");
 
 if ("IntersectionObserver" in window) {
   document.documentElement.classList.add("js-reveal");

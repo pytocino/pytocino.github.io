@@ -29,3 +29,9 @@ test("cifras del hero", () => {
     ["~60", "Diario", "140", "iOS + Android"],
   );
 });
+
+test("inglés sin los tiempos verbales mezclados", () => {
+  const json = JSON.stringify(getContent("en"));
+  assert.ok(!json.includes("Deployed and run in production"));
+  assert.ok(!json.includes("I deploy and run in production a"));
+});
