@@ -1,0 +1,20 @@
+---
+import Base from "../layouts/Base.astro";
+import { getContent, type Locale } from "../content/index.ts";
+import Nav from "./Nav.astro";
+import Hero from "./Hero.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { meta } = getContent(locale);
+---
+
+<Base lang={locale} title={meta.title} description={meta.description}>
+  <Nav locale={locale} />
+  <main>
+    <Hero locale={locale} />
+  </main>
+</Base>

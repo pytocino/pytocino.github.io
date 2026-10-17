@@ -1,0 +1,52 @@
+---
+import { getContent, type Locale } from "../content/index.ts";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const current = getContent(locale).sectionIds;
+
+// Para cada idioma destino: id de sección en el idioma actual → id equivalente en el destino.
+function idMap(target: Locale): string {
+  const targetIds = getContent(target).sectionIds;
+  const map = Object.fromEntries(
+    (Object.keys(current) as (keyof typeof current)[]).map((key) => [current[key], targetIds[key]]),
+  );
+  return JSON.stringify(map);
+}
+
+const langs: { code: Locale; label: string; href: string; name: string }[] = [
+  { code: "es", label: "ES", href: "/", name: "Español" },
+  { code: "en", label: "EN", href: "/en/", name: "English" },
+];
+---
+
+<div class="lang" role="group" aria-label={getContent(locale).nav.langLabel}>
+  {
+    langs.map((l, i) => (
+      <>
+        {i > 0 && <span aria-hidden="true">·</span>}
+        <a
+          href={l.href}
+          hreflang={l.code}
+          lang={l.code}
+          title={l.name}
+          aria-current={l.code === locale ? "true" : undefined}
+          data-lang-link
+          data-id-map={idMap(l.code)}
+        >
+          {l.label}
+        </a>
+      </>
+    ))
+  }
+</div>
+
+<style>
+  .lang { display: inline-flex; gap: 6px; align-items: center; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+  a { text-decoration: none; padding: 4px 2px; }
+  a:hover { color: var(--ink); }
+  a[aria-current="true"] { color: var(--ink); font-weight: 600; }
+</style>

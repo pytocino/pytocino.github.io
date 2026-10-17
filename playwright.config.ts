@@ -5,9 +5,9 @@ export default defineConfig({
   reporter: "line",
   use: { baseURL: "http://localhost:4321" },
   webServer: {
-    command: "npm run build && npm run preview -- --port 4321",
+    command: "npm run build && exec node tools/serve-dist.mjs",
     url: "http://localhost:4321",
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: false,
     timeout: 120_000,
   },
   projects: [

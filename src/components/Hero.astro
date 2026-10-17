@@ -1,0 +1,36 @@
+---
+import { getContent, links, type Locale } from "../content/index.ts";
+import Bento from "./Bento.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { hero, sectionIds, cvHref } = getContent(locale);
+---
+
+<section class="hero" id={sectionIds.inicio}>
+  <div class="container">
+    <span class="kicker">{hero.kicker}</span>
+    <h1>{hero.titleBefore}<em>{hero.titleEmphasis}</em>{hero.titleAfter}</h1>
+    <p class="hero__sub">{hero.subtitle}</p>
+    <div class="hero__ctas">
+      <a class="btn btn--dark" href={cvHref} download>
+        {hero.ctaCv}
+        <svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 2v9m0 0 3.5-3.5M8 11 4.5 7.5M2.5 14h11"/></svg>
+      </a>
+      <a class="btn btn--ghost" href={links.linkedin} rel="me noopener" target="_blank">{hero.ctaLinkedin}</a>
+      <a class="btn btn--ghost" href={links.github} rel="me noopener" target="_blank">{hero.ctaGithub}</a>
+    </div>
+    <Bento stats={hero.stats} />
+  </div>
+</section>
+
+<style>
+  .hero { padding-block: clamp(48px, 10vw, 128px) clamp(56px, 9vw, 112px); }
+  h1 { font-size: clamp(46px, 8.4vw, 104px); line-height: 0.98; letter-spacing: -0.025em; max-width: 14ch; }
+  h1 em { color: var(--accent); }
+  .hero__sub { margin-top: 24px; max-width: 54ch; font-size: clamp(16px, 1.6vw, 19px); color: var(--ink-soft); }
+  .hero__ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+</style>

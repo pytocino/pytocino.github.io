@@ -1,0 +1,74 @@
+---
+import { getContent, type Locale } from "../content/index.ts";
+import LangSwitch from "./LangSwitch.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { nav, sectionIds } = getContent(locale);
+const home = locale === "es" ? "/" : "/en/";
+---
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <a class="nav__brand" href={`${home}#${sectionIds.inicio}`}>Pedro David García<span>.</span></a>
+    <div class="nav__right">
+      <div class="nav__menu" id="nav-menu">
+        <ul>
+          {nav.items.map((item) => <li><a href={`#${sectionIds[item.key]}`}>{item.label}</a></li>)}
+        </ul>
+      </div>
+      <LangSwitch locale={locale} />
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label={nav.menuLabel}>
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  import "../scripts/nav.ts";
+</script>
+
+<style>
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgb(245 243 238 / 0.85);
+    backdrop-filter: saturate(1.4) blur(12px);
+    -webkit-backdrop-filter: saturate(1.4) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: var(--nav-h); }
+  .nav__brand { font-weight: 600; font-size: 15px; text-decoration: none; letter-spacing: -0.01em; }
+  .nav__brand span { color: var(--accent); }
+  .nav__right { display: flex; align-items: center; gap: 28px; }
+  .nav__menu { display: flex; align-items: center; }
+  .nav__menu ul { list-style: none; display: flex; gap: 24px; }
+  .nav__menu ul a { font-size: 14px; text-decoration: none; color: var(--ink-soft); transition: color .2s; }
+  .nav__menu ul a:hover { color: var(--accent); }
+  .nav__toggle { display: none; }
+
+  @media (max-width: 767px) {
+    .nav__right { gap: 12px; }
+    .nav__toggle {
+      display: inline-flex; flex-direction: column; justify-content: center; gap: 6px;
+      width: 40px; height: 40px; margin-right: -8px; padding: 0 9px;
+      background: none; border: 0; cursor: pointer;
+    }
+    .nav__toggle span { display: block; height: 1.5px; background: var(--ink); transition: transform .25s; }
+    .nav__toggle[aria-expanded="true"] span:first-child { transform: translateY(3.75px) rotate(45deg); }
+    .nav__toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+    .nav__menu {
+      position: absolute; inset: var(--nav-h) 0 auto 0;
+      flex-direction: column; align-items: flex-start;
+      padding: 20px var(--pad) 28px;
+      background: var(--bg); border-bottom: 1px solid var(--line);
+      display: none;
+    }
+    .nav__menu.is-open { display: flex; }
+    .nav__menu ul { flex-direction: column; gap: 14px; }
+    .nav__menu ul a { font-family: var(--font-serif); font-size: 30px; color: var(--ink); }
+  }
+</style>
