@@ -1,0 +1,35 @@
+---
+import { getBuildInfo } from "../lib/buildInfo.ts";
+
+interface Props {
+  note: string;
+}
+
+const { note } = Astro.props;
+const info = getBuildInfo(process.env, new Date());
+---
+
+<div class="terminal mono" aria-label="build">
+  <div class="terminal__dots" aria-hidden="true"><i></i><i></i><i></i></div>
+  <p><span class="p">$</span> git push origin master</p>
+  <p><span class="ok">✔</span> build · check · lighthouse · deploy → GitHub Pages</p>
+  <p class="dim">
+    {info.runUrl ? <a href={info.runUrl} target="_blank" rel="noopener">commit {info.sha}</a> : <>commit {info.sha}</>} · {info.date}
+  </p>
+  <p class="dim"># {note}</p>
+</div>
+
+<style>
+  .terminal {
+    background: var(--ink); color: #d6e2ee; border-radius: 12px;
+    padding: 16px 18px; font-size: 12.5px; line-height: 1.8; overflow-x: auto;
+  }
+  .terminal__dots { display: flex; gap: 6px; margin-bottom: 10px; }
+  .terminal__dots i { width: 9px; height: 9px; border-radius: 50%; background: #ff5f57; }
+  .terminal__dots i:nth-child(2) { background: #febc2e; }
+  .terminal__dots i:nth-child(3) { background: #28c840; }
+  .p { color: var(--accent); }
+  .ok { color: var(--ok); }
+  .dim { color: #9aa7b4; }
+  a { text-decoration: underline; text-underline-offset: 3px; }
+</style>

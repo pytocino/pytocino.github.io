@@ -1,0 +1,56 @@
+---
+import { email, getContent, links, type Locale } from "../content/index.ts";
+import BuildTerminal from "./BuildTerminal.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { contact, sectionIds, cvHref, hero } = getContent(locale);
+---
+
+<section class="section contact" id={sectionIds.contacto}>
+  <div class="container contact__grid">
+    <div>
+      <span class="kicker">{contact.kicker}</span>
+      <h2>{contact.title}</h2>
+      <p class="contact__text">{contact.text}</p>
+      <a class="contact__email" href={`mailto:${email}`}>{email}</a>
+      <p class="contact__loc">{contact.location}</p>
+      <div class="contact__ctas">
+        <a class="btn btn--dark" href={cvHref} download>{hero.ctaCv}</a>
+        <a class="btn btn--ghost" href={links.linkedin} target="_blank" rel="me noopener">LinkedIn</a>
+        <a class="btn btn--ghost" href={links.github} target="_blank" rel="me noopener">GitHub</a>
+      </div>
+    </div>
+    <BuildTerminal note={contact.terminalNote} />
+  </div>
+</section>
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>© {new Date().getFullYear()} Pedro David García López</span>
+    <a href={links.repo} target="_blank" rel="noopener">{locale === "es" ? "Código de esta web" : "Source of this site"} ↗</a>
+  </div>
+</footer>
+
+<style>
+  .contact__grid { display: grid; gap: 40px; align-items: end; }
+  h2 { font-size: clamp(52px, 9vw, 112px); line-height: 0.95; }
+  .contact__text { margin-top: 20px; max-width: 48ch; color: var(--ink-soft); }
+  .contact__email {
+    display: inline-block; margin-top: 26px;
+    font-family: var(--font-serif); font-size: clamp(24px, 4.2vw, 42px); line-height: 1.1;
+    text-decoration: none; background-image: linear-gradient(var(--accent), var(--accent));
+    background-size: 100% 2px; background-position: 0 100%; background-repeat: no-repeat;
+    word-break: break-all;
+  }
+  .contact__email:hover { color: var(--accent); }
+  .contact__loc { margin-top: 10px; font-size: 14px; color: var(--muted); }
+  .contact__ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .footer { border-top: 1px solid var(--line); }
+  .footer__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; padding-block: 24px; font-size: 13px; color: var(--muted); }
+  .footer a { text-decoration: none; }
+  .footer a:hover { color: var(--accent); }
+  @media (min-width: 900px) { .contact__grid { grid-template-columns: 1.3fr 1fr; } }
+</style>

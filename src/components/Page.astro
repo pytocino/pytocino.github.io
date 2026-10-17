@@ -5,6 +5,9 @@ import Nav from "./Nav.astro";
 import Hero from "./Hero.astro";
 import Experience from "./Experience.astro";
 import Project from "./Project.astro";
+import Stack from "./Stack.astro";
+import Education from "./Education.astro";
+import Contact from "./Contact.astro";
 
 interface Props {
   locale: Locale;
@@ -20,5 +23,8 @@ const { meta } = getContent(locale);
     <Hero locale={locale} />
     <Experience locale={locale} />
     <Project locale={locale} />
+    <Stack locale={locale} />
+    <Education locale={locale} />
+    <Contact locale={locale} />
   </main>
 </Base>
