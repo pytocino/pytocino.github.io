@@ -4,6 +4,7 @@
   --ink-soft: #3b3b3b;
   --muted: #6b6b6b;
   --accent: #e2553b;
+  --accent-ink: #bf3f27; /* acento para texto pequeño (contraste AA sobre crema) */
   --card: #ffffff;
   --line: #e7e3da;
   --ok: #3ee08f;
@@ -61,7 +62,7 @@ ul { margin: 0; padding: 0; }
   font-family: var(--font-mono);
   font-size: 13px;
   letter-spacing: 0.04em;
-  color: var(--accent);
+  color: var(--accent-ink);
   margin-bottom: 14px;
 }
 .kicker::before { content: "// "; }
