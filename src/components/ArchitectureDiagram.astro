@@ -1,0 +1,67 @@
+---
+interface Props {
+  title: string;
+  arch: { app: string; edge: string; api: string; data: string; push: string };
+}
+
+const { title, arch } = Astro.props;
+// "App móvil · Expo + React Native" → ["App móvil", "Expo + React Native"]
+const lines = (label: string) => label.split(" · ");
+const W = 220;
+const nodes = [
+  { key: "app", x: 20, y: 20, h: 64, label: lines(arch.app), strong: true },
+  { key: "edge", x: 20, y: 134, h: 44, label: lines(arch.edge) },
+  { key: "api", x: 20, y: 228, h: 64, label: lines(arch.api), strong: true },
+  { key: "data", x: 20, y: 342, h: 48, label: lines(arch.data) },
+];
+const push = { x: 262, y: 228, w: 88, h: 64, label: lines(arch.push) };
+const desc = `${arch.app} → ${arch.edge} → ${arch.api} → ${arch.data}; ${arch.push} → ${arch.app}`;
+---
+
+<svg class="arch" viewBox="0 0 370 410" role="img" aria-labelledby="arch-title arch-desc">
+  <title id="arch-title">{title}</title>
+  <desc id="arch-desc">{desc}</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 10 5 0 10z" fill="#e6ac33"></path>
+    </marker>
+  </defs>
+
+  <g class="links" fill="none" stroke="#e6ac33" stroke-width="1.5" marker-end="url(#arrow)">
+    <path d="M130 84 V130"></path>
+    <path d="M130 178 V224"></path>
+    <path d="M130 292 V338"></path>
+    <path d="M240 260 H258"></path>
+    <path d="M306 228 V52 H244" stroke-dasharray="4 4"></path>
+  </g>
+
+  {
+    nodes.map((n) => (
+      <g class:list={["node", { "node--strong": n.strong }]}>
+        <rect x={n.x} y={n.y} width={W} height={n.h} rx="12"></rect>
+        {n.label.length === 1 ? (
+          <text x={n.x + W / 2} y={n.y + n.h / 2 + 5} text-anchor="middle" class="t1">{n.label[0]}</text>
+        ) : (
+          <>
+            <text x={n.x + W / 2} y={n.y + n.h / 2 - 4} text-anchor="middle" class="t1">{n.label[0]}</text>
+            <text x={n.x + W / 2} y={n.y + n.h / 2 + 15} text-anchor="middle" class="t2">{n.label[1]}</text>
+          </>
+        )}
+      </g>
+    ))
+  }
+  <g class="node">
+    <rect x={push.x} y={push.y} width={push.w} height={push.h} rx="12"></rect>
+    <text x={push.x + push.w / 2} y={push.y + 28} text-anchor="middle" class="t1">{push.label[0]}</text>
+    <text x={push.x + push.w / 2} y={push.y + 46} text-anchor="middle" class="t2">{push.label[1]}</text>
+  </g>
+</svg>
+
+<style>
+  .arch { width: 100%; max-width: 420px; margin-inline: auto; }
+  rect { fill: rgb(255 255 255 / 0.04); stroke: rgb(243 233 216 / 0.28); stroke-width: 1; }
+  .node--strong rect { fill: rgb(230 172 51 / 0.1); stroke: #e6ac33; }
+  text { fill: #f3e9d8; font-family: var(--font-mono); }
+  .t1 { font-size: 13px; font-weight: 600; }
+  .t2 { font-size: 11px; opacity: 0.7; }
+</style>

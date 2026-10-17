@@ -1,0 +1,109 @@
+---
+import { Picture } from "astro:assets";
+import { getContent, links, type Locale } from "../content/index.ts";
+import ArchitectureDiagram from "./ArchitectureDiagram.astro";
+import SectionHeader from "./SectionHeader.astro";
+import feed from "../assets/beerfinder/01-feed.png";
+import mapa from "../assets/beerfinder/02-mapa.png";
+import perfil from "../assets/beerfinder/04-perfil.png";
+import insignias from "../assets/beerfinder/05-insignias.png";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { project, sectionIds } = getContent(locale);
+const shots = [feed, mapa, perfil, insignias];
+---
+
+<section class="section" id={sectionIds.beerfinder}>
+  <div class="container">
+    <SectionHeader kicker={project.kicker} title={project.title} />
+    <article class="project">
+      <div class="project__grid">
+        <div class="project__text">
+          <h3>{project.tagline}</h3>
+          <p>{project.description}</p>
+          <ul class="project__tech">
+            {project.tech.map((t) => <li>{t}</li>)}
+          </ul>
+          <div class="project__ctas">
+            <a class="pbtn pbtn--solid" href={links.appStore} target="_blank" rel="noopener">{project.ctaAppStore}</a>
+            <a class="pbtn pbtn--solid" href={links.googlePlay} target="_blank" rel="noopener">{project.ctaPlay}</a>
+            <a class="pbtn" href={links.beerfinderWeb} target="_blank" rel="noopener">{project.ctaWeb} ↗</a>
+          </div>
+        </div>
+        <figure class="project__arch">
+          <figcaption class="mono">{project.archTitle}</figcaption>
+          <ArchitectureDiagram title={project.archTitle} arch={project.arch} />
+        </figure>
+      </div>
+      <ul class="shots">
+        {
+          shots.map((src, i) => (
+            <li>
+              <Picture
+                src={src}
+                alt={project.screenshotsAlt[i] ?? ""}
+                formats={["avif", "webp"]}
+                fallbackFormat="webp"
+                widths={[240, 480]}
+                sizes="(min-width: 900px) 240px, 62vw"
+                loading="lazy"
+                decoding="async"
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </article>
+  </div>
+</section>
+
+<style>
+  .project {
+    --espresso: #1b130d;
+    --cream: #f3e9d8;
+    --amber: #e6ac33;
+    background: radial-gradient(120% 80% at 100% 0%, #3a2414 0%, var(--espresso) 55%);
+    color: var(--cream);
+    border-radius: calc(var(--radius) * 1.6);
+    padding: clamp(24px, 4.5vw, 56px);
+    overflow: hidden;
+  }
+  .project__grid { display: grid; gap: 40px; }
+  h3 { font-size: clamp(30px, 4vw, 46px); color: #fff; max-width: 16ch; }
+  .project__text p { margin-top: 18px; color: rgb(243 233 216 / 0.78); max-width: 56ch; }
+  .project__tech { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 22px; }
+  .project__tech li {
+    font-family: var(--font-mono); font-size: 12px; line-height: 1; padding: 7px 10px;
+    border-radius: 8px; border: 1px solid rgb(243 233 216 / 0.18); color: rgb(243 233 216 / 0.85);
+  }
+  .project__ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .pbtn {
+    display: inline-flex; padding: 11px 18px; border-radius: 999px; font-size: 14px; font-weight: 500;
+    text-decoration: none; border: 1px solid rgb(243 233 216 / 0.4); transition: transform .2s, background-color .2s;
+  }
+  .pbtn:hover { transform: translateY(-1px); background: rgb(243 233 216 / 0.08); }
+  .pbtn--solid { background: var(--amber); border-color: var(--amber); color: var(--espresso); }
+  .pbtn--solid:hover { background: #f0bd4f; }
+  .project__arch { margin: 0; }
+  figcaption { font-size: 12px; color: var(--amber); margin-bottom: 14px; }
+  figcaption::before { content: "// "; }
+
+  .shots {
+    list-style: none; display: flex; gap: 14px; margin: 44px calc(-1 * clamp(24px, 4.5vw, 56px)) 0;
+    padding: 0 clamp(24px, 4.5vw, 56px) 6px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+  }
+  .shots::-webkit-scrollbar { display: none; }
+  .shots li { flex: 0 0 62%; scroll-snap-align: center; }
+  .shots :global(img) { width: 100%; height: auto; border-radius: 18px; box-shadow: 0 24px 50px -24px rgb(0 0 0 / 0.7); }
+
+  @media (min-width: 900px) {
+    .project__grid { grid-template-columns: 1.15fr 0.85fr; align-items: center; gap: 56px; }
+    .shots { overflow: visible; margin-inline: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .shots li:nth-child(even) { transform: translateY(28px); }
+  }
+</style>
