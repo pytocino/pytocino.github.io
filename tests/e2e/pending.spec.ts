@@ -13,7 +13,9 @@ test("el selector de idioma lleva a la sección que se está viendo", async ({ p
   await page.goto("/en/");
   await page.locator('#nav-menu a[href="#experience"]').evaluate((a: HTMLElement) => a.click());
   await expect(page).toHaveURL(/#experience$/);
-  await page.locator("#contact").evaluate((el) => el.scrollIntoView({ block: "start", behavior: "instant" }));
+  await page.mouse.move(200, 400);
+  await page.mouse.wheel(0, 20000); // scroll del usuario hasta el final (Contact)
+  await expect.poll(() => page.evaluate(() => scrollY + innerHeight >= document.documentElement.scrollHeight - 2)).toBe(true);
   // click() de Playwright desplaza la página para "mostrar" el enlace de la barra fija; un toque real no lo hace.
   await page.getByRole("link", { name: "ES", exact: true }).evaluate((a: HTMLElement) => a.click());
   await expect(page).toHaveURL(/\/#contacto$/);
