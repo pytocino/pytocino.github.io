@@ -1,0 +1,40 @@
+---
+import { getContent, type Locale } from "../content/index.ts";
+import Chips from "./Chips.astro";
+import SectionHeader from "./SectionHeader.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { stack, sectionIds } = getContent(locale);
+---
+
+<section class="section" id={sectionIds.stack}>
+  <div class="container">
+    <SectionHeader kicker={stack.kicker} title={stack.title} />
+    <div class="stack">
+      {
+        stack.groups.map((g, i) => (
+          <div class="stack__group">
+            <span class="stack__index mono">0{i + 1}</span>
+            <h3>{g.label}</h3>
+            <Chips items={g.items} label={g.label} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .stack { display: grid; gap: 14px; }
+  .stack__group {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: clamp(22px, 3vw, 32px);
+  }
+  .stack__index { font-size: 12px; color: var(--accent-ink); }
+  h3 { font-size: clamp(28px, 3.2vw, 36px); margin: 8px 0 20px; }
+  @media (min-width: 900px) { .stack { grid-template-columns: 1fr 1fr; } }
+</style>

@@ -1,0 +1,34 @@
+---
+import Base from "../layouts/Base.astro";
+import { getContent, type Locale } from "../content/index.ts";
+import Nav from "./Nav.astro";
+import Hero from "./Hero.astro";
+import Experience from "./Experience.astro";
+import Project from "./Project.astro";
+import Stack from "./Stack.astro";
+import Education from "./Education.astro";
+import Contact from "./Contact.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const { meta } = getContent(locale);
+---
+
+<Base lang={locale} title={meta.title} description={meta.description}>
+  <Nav locale={locale} />
+  <main>
+    <Hero locale={locale} />
+    <Experience locale={locale} />
+    <Project locale={locale} />
+    <Stack locale={locale} />
+    <Education locale={locale} />
+    <Contact locale={locale} />
+  </main>
+</Base>
+
+<script>
+  import "../scripts/reveal.ts";
+</script>
