@@ -9,7 +9,7 @@ const { note } = Astro.props;
 const info = getBuildInfo(process.env, new Date());
 ---
 
-<div class="terminal mono" aria-label="build">
+<div class="terminal mono">
   <div class="terminal__dots" aria-hidden="true"><i></i><i></i><i></i></div>
   <p><span class="p">$</span> git push origin master</p>
   <p><span class="ok">✔</span> build · check · lighthouse · deploy → GitHub Pages</p>

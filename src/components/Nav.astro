@@ -52,7 +52,7 @@ const home = locale === "es" ? "/" : "/en/";
 
   @media (max-width: 767px) {
     .nav__right { gap: 12px; }
-    .nav__toggle {
+    :global(.js-nav) .nav__toggle {
       display: inline-flex; flex-direction: column; justify-content: center; gap: 6px;
       width: 40px; height: 40px; margin-right: -8px; padding: 0 9px;
       background: none; border: 0; cursor: pointer;

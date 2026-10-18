@@ -22,4 +22,4 @@ export const stackDev = [
 
 export const techSaes = ["Docker Swarm", "Portainer", "GitLab CI", "Prometheus", "Grafana", "Nginx", ".NET 10", "Laravel", "React", "PowerShell"];
 export const techUpct = ["Laravel", "React", "PHP", "WordPress"];
-export const techBeerfinder = ["Expo SDK 57", "React Native", "TypeScript", "TanStack Query", "Zustand", "Laravel 13", "Sanctum", "MySQL", "Redis", "Cloudflare"];
+export const techBeerfinder = ["Expo SDK 57", "React Native", "TypeScript", "TanStack Query", "Zustand", "Laravel 13", "Sanctum", "Laravel Cloud", "MySQL", "Redis", "Cloudflare"];

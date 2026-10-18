@@ -1,3 +1,5 @@
+document.documentElement.classList.add("js-nav");
+
 const toggle = document.querySelector<HTMLButtonElement>(".nav__toggle");
 const menu = document.getElementById("nav-menu");
 
@@ -9,16 +11,39 @@ function setOpen(open: boolean): void {
 toggle?.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
 menu?.querySelectorAll("ul a").forEach((link) => link.addEventListener("click", () => setOpen(false)));
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") setOpen(false);
+  if (e.key !== "Escape" || toggle?.getAttribute("aria-expanded") !== "true") return;
+  const focusInMenu = menu?.contains(document.activeElement) ?? false;
+  setOpen(false);
+  if (focusInMenu) toggle?.focus();
 });
 
-// Al cambiar de idioma, conservar la sección en la que está el usuario.
+/**
+ * Id de la sección que se está viendo, o null en la portada. Al final de la página
+ * cuenta la última sección (puede no llegar arriba); si aún no se ha hecho scroll,
+ * vale el hash de la URL.
+ */
+function currentSectionId(): string | null {
+  const sections = [...document.querySelectorAll<HTMLElement>("main section[id]")];
+  const atBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+  let current = atBottom ? (sections.at(-1)?.id ?? null) : null;
+  if (!current) {
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top <= window.innerHeight * 0.35) current = section.id;
+    }
+  }
+  if (current === sections[0]?.id) current = null;
+  if (!current && window.scrollY < 10) {
+    const hash = location.hash.slice(1);
+    if (sections.some((s) => s.id === hash)) current = hash;
+  }
+  return current;
+}
+
+// Al cambiar de idioma, llevar al usuario a la misma sección que está viendo.
 document.querySelectorAll<HTMLAnchorElement>("[data-lang-link]").forEach((link) => {
   link.addEventListener("click", () => {
-    const id = location.hash.slice(1);
-    if (!id) return;
+    const id = currentSectionId();
     const map = JSON.parse(link.dataset.idMap ?? "{}") as Record<string, string>;
-    const target = map[id];
-    if (target) link.hash = target;
+    link.hash = id ? (map[id] ?? "") : "";
   });
 });

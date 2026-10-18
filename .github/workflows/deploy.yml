@@ -43,9 +43,6 @@ jobs:
           export CHROME_PATH="$(node -e "console.log(require('playwright').chromium.executablePath())")"
           npx lhci autorun
 
-      - uses: actions/configure-pages@v6
-        if: github.event_name != 'pull_request'
-
       - uses: actions/upload-pages-artifact@v5
         if: github.event_name != 'pull_request'
         with:

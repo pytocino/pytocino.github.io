@@ -103,7 +103,7 @@ export const en: SiteContent = {
     title: "BeerFinder",
     tagline: "The social network for beer lovers, on iOS and Android.",
     description:
-      "Log what you drink, rate bars and level up. Check-ins with photo and rating, a map of bars, a community-built beer menu for each venue and a game layer with levels, badges, streaks and leaderboards. I designed, built and shipped it on my own, from the API to the app stores.",
+      "Log what you drink, rate bars and level up. Check-ins with photo and rating, a map of bars, a community-built beer menu for each venue and a game layer with levels, badges, streaks and leaderboards. I designed, built and shipped it on my own, from the API to the app stores. The app is in Spanish, built for the Spanish market.",
     ctaAppStore: "App Store",
     ctaPlay: "Google Play",
     ctaWeb: "beerfinder.es",
@@ -111,7 +111,7 @@ export const en: SiteContent = {
     arch: {
       app: "Mobile app · Expo + React Native",
       edge: "Cloudflare",
-      api: "Laravel 13 API + Sanctum",
+      api: "Laravel 13 API · Laravel Cloud",
       data: "MySQL + Redis",
       push: "Push · FCM / APNs",
     },

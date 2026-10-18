@@ -111,7 +111,7 @@ export const es: SiteContent = {
     arch: {
       app: "App móvil · Expo + React Native",
       edge: "Cloudflare",
-      api: "API Laravel 13 + Sanctum",
+      api: "API Laravel 13 · Laravel Cloud",
       data: "MySQL + Redis",
       push: "Push · FCM / APNs",
     },

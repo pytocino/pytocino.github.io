@@ -35,3 +35,9 @@ test("inglés sin los tiempos verbales mezclados", () => {
   assert.ok(!json.includes("Deployed and run in production"));
   assert.ok(!json.includes("I deploy and run in production a"));
 });
+
+test("BeerFinder: la API se despliega en Laravel Cloud", () => {
+  for (const locale of ["es", "en"] as const) {
+    assert.match(getContent(locale).project.arch.api, /Laravel Cloud/);
+  }
+});
