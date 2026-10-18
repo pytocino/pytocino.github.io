@@ -103,17 +103,18 @@ export const es: SiteContent = {
     title: "BeerFinder",
     tagline: "La red social de los cerveceros, en iOS y Android.",
     description:
-      "Apunta lo que bebes, puntúa bares y sube de nivel. Check-ins con foto y valoración, mapa de bares, carta de cervezas hecha entre todos y una capa de juego con niveles, insignias, rachas y ranking. La he diseñado, programado y publicado yo solo: de la API a las tiendas.",
+      "Apunta lo que bebes, puntúa bares y sube de nivel. Check-ins con foto y valoración, mapa de bares, carta de cervezas hecha entre todos y una capa de juego con niveles, insignias, rachas y ranking. La he diseñado, programado y publicado yo solo: un monorepo con la app en Expo y, en Laravel, la API, la web y los paneles de administración y de los bares. En español e inglés, con actualizaciones OTA, inicio de sesión con Apple y Google, notificaciones push y más de 1.200 tests automatizados.",
     ctaAppStore: "App Store",
     ctaPlay: "Google Play",
     ctaWeb: "beerfinder.es",
     archTitle: "Arquitectura",
     arch: {
       app: "App móvil · Expo + React Native",
-      edge: "Cloudflare",
-      api: "API Laravel 13 · Laravel Cloud",
-      data: "MySQL + Redis",
-      push: "Push · FCM / APNs",
+      web: "Web y paneles · Inertia + React",
+      api: "API Laravel 13 · Laravel Cloud · colas + scheduler",
+      data: "MySQL",
+      storage: "Cloudflare R2 · fotos",
+      push: "Expo Push · FCM / APNs",
     },
     tech: techBeerfinder,
     screenshotsAlt: [

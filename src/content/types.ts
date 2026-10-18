@@ -43,7 +43,7 @@ export interface SiteContent {
     ctaPlay: string;
     ctaWeb: string;
     archTitle: string;
-    arch: { app: string; edge: string; api: string; data: string; push: string };
+    arch: { app: string; web: string; api: string; data: string; storage: string; push: string };
     tech: string[];
     screenshotsAlt: string[];
   };
