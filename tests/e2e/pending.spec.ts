@@ -38,9 +38,13 @@ test("Escape cierra el menú y devuelve el foco al botón", async ({ page }, tes
   await expect(toggle).toBeFocused();
 });
 
-test("la versión inglesa aclara el idioma de la app", async ({ page }) => {
-  await page.goto("/en/");
-  await expect(page.locator("#beerfinder")).toContainText("Spanish");
+test("el diagrama refleja la arquitectura real", async ({ page }) => {
+  await page.goto("/");
+  const svg = page.locator("#beerfinder svg");
+  for (const label of ["App móvil", "Web y paneles", "API Laravel 13", "MySQL", "Cloudflare R2", "Expo Push"]) {
+    await expect(svg).toContainText(label);
+  }
+  await expect(svg).not.toContainText("Redis");
 });
 
 test("la terminal no lleva un aria-label sin rol", async ({ page }) => {

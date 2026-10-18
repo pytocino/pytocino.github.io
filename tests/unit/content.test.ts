@@ -41,3 +41,22 @@ test("BeerFinder: la API se despliega en Laravel Cloud", () => {
     assert.match(getContent(locale).project.arch.api, /Laravel Cloud/);
   }
 });
+
+test("BeerFinder: arquitectura real (sin capa Cloudflare inventada ni Redis en producción)", () => {
+  for (const locale of ["es", "en"] as const) {
+    const { arch, tech } = getContent(locale).project;
+    const labels = Object.values(arch).join(" | ");
+    assert.doesNotMatch(labels, /Redis/);
+    assert.match(labels, /Cloudflare R2/);
+    assert.match(labels, /Expo Push/);
+    assert.match(labels, /Inertia/);
+    assert.ok(!tech.includes("Cloudflare") && !tech.includes("Redis"));
+    for (const t of ["Cloudflare R2", "Laravel Cloud", "Inertia + React", "EAS Update", "Sentry"]) assert.ok(tech.includes(t), `${locale}: falta ${t}`);
+  }
+});
+
+test("BeerFinder: la app es bilingüe", () => {
+  assert.doesNotMatch(getContent("en").project.description, /The app is in Spanish/);
+  assert.match(getContent("en").project.description, /English and Spanish/);
+  assert.match(getContent("es").project.description, /español e inglés/);
+});
